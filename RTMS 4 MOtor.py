@@ -2,6 +2,8 @@ import tkinter as tk
 import RPi.GPIO as GPIO
 import time
 import math
+import os
+
 
 TRIG1 = 23
 ECHO1 = 24
@@ -49,6 +51,9 @@ revolutions = 0  # Variable to store the number of revolutions
 reversal_triggered = False
 fault_detected = False  # Variable to indicate whether a fault is detected
 distance_moved = 0.0  # Variable to store the distance moved
+os.system("Xvfb :1 -screen 0 720xt20x16 &")
+os.enviornment['DISPLAY'] = ":1.0"
+
 
 def distance(trig, echo):
     GPIO.output(trig, False)
